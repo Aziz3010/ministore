@@ -1,0 +1,18 @@
+.navStyle {
+    padding: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navLinkStyle {
+    margin: 0px 10px;
+    color: #000;
+}
+
+.activeNavLinkStyle {
+    color: #007bff;
+    font-weight: bold;
+}
