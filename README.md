@@ -28,4 +28,15 @@ Before starting, make sure you have the following installed:
 
 ## Or:  Live
 
-- **Demo** > ([nodejs.org](https://ministore-2.vercel.app/products)).
+- **Demo** > ([ministore-2.vercel](https://ministore-2.vercel.app/products)).
+
+
+## Technology & Packages
+
+1. React.js
+2. Redux-Toolkit
+3. Tailwindcss
+4. React-Bootstrap
+5. React-Toastify
+6. React-Router-Dom
+7. React-Icons
