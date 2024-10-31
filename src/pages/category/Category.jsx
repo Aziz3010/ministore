@@ -20,8 +20,6 @@ const Category = () => {
         const loadProducts = async () => {
             try {
                 const data = await fetchData(`/products/category/${categoryName}?limit=${productsNumber}&sort=${sortType}`);
-                console.log(data);
-                
                 setCategories(data);
             } catch (err) {
                 setError(err.message);

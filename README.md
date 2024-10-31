@@ -1,15 +1,31 @@
-# Getting Started with Create React App
+# Ministore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome! Follow the steps below to clone, set up, and run the project on your local machine.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before starting, make sure you have the following installed:
 
-### `npm start`
+- **Node.js** and **npm** installed (Download both from [nodejs.org](https://nodejs.org/)).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Step 1: Clone the Repository
+
+1. Open your terminal.
+2. Run the following command to clone the project:
+   ```bash
+   git clone https://github.com/Aziz3010/ministore.git
+
+### Step 2:  Install Dependencies
+
+1. npm install
+
+### Step 3:  Run the Project
+
+1. npm start
+
+
+## Or:  Live
+
+- **Demo** > ([nodejs.org](https://ministore-2.vercel.app/products)).
