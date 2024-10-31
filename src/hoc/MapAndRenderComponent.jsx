@@ -1,11 +1,13 @@
 import React from 'react';
 
-export const MapAndRenderComponent = ({ items, Component }) => {
+const MapAndRenderComponent = ({ items, Component, isCategory = false }) => {
   return (
     <>
       {items.map((item, index) => (
-        <Component key={index} {...item} />
+        isCategory ? <Component key={index} item={item} /> : <Component key={index} {...item} /> 
       ))}
     </>
   );
 };
+
+export default MapAndRenderComponent;

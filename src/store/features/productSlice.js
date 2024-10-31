@@ -1,13 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
+import { ProductsNumberBtnValue } from "../../constants";
 
 const productSlice = createSlice({
-  name: 'product',
-  initialState: { value: 0 },
+  name: "product",
+  initialState: {
+    gridView: 6,
+    productsNumber: ProductsNumberBtnValue[0],
+    sortType: "desc",
+  },
   reducers: {
-    increment: state => { state.value += 1 },
-    decrement: state => { state.value -= 1 }
-  }
+    changeGridView: (state, actions) => {
+      state.gridView = actions.payload;
+    },
+    changeProductsNumber: (state, actions) => {
+      state.productsNumber = actions.payload;
+    },
+    changeSortType: (state, actions) => {
+      state.sortType = actions.payload;
+    },
+  },
 });
 
-export const { increment, decrement } = productSlice.actions;
+export const { changeGridView, changeProductsNumber, changeSortType } = productSlice.actions;
 export default productSlice.reducer;

@@ -10,7 +10,7 @@ const FilterSide = () => {
     return (
         <ul>
             {filterOptions?.map((item, index) =>
-                <li key={index} className='flex items-center justify-between'>
+                <li key={index} className='flex items-center justify-between p-[10px]'>
                     <h3>{item?.text}</h3>
                     <IoIosArrowDown />
                 </li>

@@ -1,0 +1,33 @@
+.productImagesContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.thumbnailContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: 15px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    margin: 5px 0;
+    cursor: pointer;
+    transition: border 0.3s ease;
+}
+
+.thumbnail:hover {
+    border: 2px solid rgba(0, 0, 255, 0.5);
+}
+
+.selectedThumbnail {
+    border: 2px solid blue;
+}
+
+.mainImageC {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+}

@@ -1,20 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { fetchData } from '../../utils/api';
 import { Col, Container, Row } from 'react-bootstrap';
-import styles from './products.module.css';
 import FilterSide from '../filterSide/FilterSide';
-
-const {filterSideStyle, itemsSideStyle} = styles;
+import MapAndRenderComponent from '../../hoc/MapAndRenderComponent';
+import CardItemCom from '../../components/CardItemCom/CardItemCom';
+import GridViewBtn from '../../components/GridViewBtn/GridViewBtn';
+import ProductsNumberBtn from '../../components/ProductsNumberBtn/ProductsNumberBtn';
+import BreadcrumbCom from '../../components/Breadcrumb/BreadcrumbCom';
+import { useSelector } from 'react-redux';
+import FormFloatingSelectCom from '../../components/FormFloatingSelectCom/FormFloatingSelectCom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const { productsNumber, sortType } = useSelector((state) => state.product);
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
-        const data = await fetchData('/products');
+        const data = await fetchData(`/products?limit=${productsNumber}&sort=${sortType}`);
         setProducts(data);
       } catch (err) {
         setError(err.message);
@@ -24,42 +29,55 @@ const Products = () => {
     };
 
     loadProducts();
-  }, []);
-
+  }, [productsNumber, sortType]);
 
   return (
-    <Container>
-      {(() => {
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error: {error}</p>;
+    <section>
+      <Container>
+        {(() => {
+          if (loading) return <p>Loading...</p>;
+          if (error) return <p>Error: {error}</p>;
 
-        return (
-          <Row>
-            <Col className={`${filterSideStyle} d-none d-sm-block`} sm={12} md={3} lg={4} style={{backgroundColor: 'red'}}>
-              <FilterSide />
-            </Col>
-            <Col className={itemsSideStyle} sm={12} md={9} lg={8} style={{backgroundColor: 'green'}}>b {products?.length}</Col>
-
-
-
-            {/* {products.map(product => (
-              <Col xs={12} sm={6} md={4} lg={3} key={product.id} className="mb-4">
-                <Card>
-                  <Card.Img variant="top" src={product.image} alt={product.title} />
-                  <Card.Body>
-                    <Card.Title>{product.title}</Card.Title>
-                    <Card.Text>
-                      Price: ${product.price}
-                    </Card.Text>
-                    <a href={`/products/${product.id}`} className="btn btn-primary">View Details</a>
-                  </Card.Body>
-                </Card>
+          return (
+            <Row className='h-full'>
+              {/* Filter side bar */}
+              <Col className="d-none d-sm-block border-r-[1px] border-gray-100 p-[15px]" sm={12} md={3} lg={4}>
+                <FilterSide />
               </Col>
-            ))} */}
-          </Row>
-        );
-      })()}
-    </Container>
+
+              {/* All Products & Sort + Grid Bar */}
+              <Col className="p-[15px]" sm={12} md={9} lg={8} >
+
+                <Container className='p-[10px]'>
+                  <Row>
+                    {/* Path */}
+                    <BreadcrumbCom />
+
+                    {/* Products Number Buttons */}
+                    <ProductsNumberBtn />
+
+                    {/* Grid Buttons */}
+                    <GridViewBtn />
+
+                    {/* Sort Selector */}
+                    <FormFloatingSelectCom />
+                  </Row>
+                </Container>
+
+
+                <Container className='py-[30px] px-[10px]'>
+                  <Row>
+                    <MapAndRenderComponent items={products} Component={CardItemCom} />
+                  </Row>
+                </Container>
+
+              </Col>
+
+            </Row>
+          );
+        })()}
+      </Container>
+    </section>
   );
 };
 

@@ -8,6 +8,23 @@
   box-sizing: border-box;
 }
 
+#root {
+  min-height: 100vh;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+section {
+  padding-top: 70px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+}
+
 a {
   text-decoration: none;
 }
