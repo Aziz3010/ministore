@@ -8,6 +8,7 @@ import Categories from "./pages/categories/Categories";
 import Products from "./pages/products/Products";
 import CartPage from "./pages/cart/CartPage";
 import { Bounce, ToastContainer } from "react-toastify";
+import OffersPopup from "./components/OffersPopup/OffersPopup";
 
 function App() {
   const navigate = useNavigate();
@@ -33,7 +34,9 @@ function App() {
         theme="colored"
         transition={Bounce}
       />
+      
       <Navbar />
+
       <Routes>
         <Route path="/products" element={<Products />} />
         <Route path="/products/:productId" element={<Product />} />
@@ -42,6 +45,8 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      
+      <OffersPopup />
     </>
   );
 }
