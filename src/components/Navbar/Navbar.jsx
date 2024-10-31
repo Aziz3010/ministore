@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return (
         <nav className={navStyle}>
-            <div className='w-full flex items-center justify-between h-[40px]'>
+            <div className='w-full flex items-center justify-between h-[40px] overflow-x-auto'>
                 <div className='w-full flex items-center justify-center sm:gap-[20px] gap-[5px]'>
                     <MapAndRenderComponent items={NAVBARLIST} Component={ListComponent} />
                 </div>

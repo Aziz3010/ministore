@@ -19,7 +19,7 @@ const ProductsNumberBtn = () => {
     }, [dispatch]);
 
     return (
-        <Col sm={3} className='flex items-center justify-center gap-[4px]'>
+        <Col sm={3} className='flex items-center justify-start gap-[4px] sm:justify-center'>
             <h3 className='text-[14px]'>Show :</h3>
             <h4 onClick={() => { handleGridViewChange(ProductsNumberBtnValue[0]) }} className={`cursor-pointer text-[14px] ${productsNumber === ProductsNumberBtnValue[0] ? "font-bold" : "font-normal"}`}>{ProductsNumberBtnValue[0]}</h4>
             <span className='text-[14px]'>/</span>

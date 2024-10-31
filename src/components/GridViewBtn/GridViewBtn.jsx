@@ -24,7 +24,7 @@ const GridViewBtn = () => {
     }, [dispatch]);
 
     return (
-        <Col sm={2} className='flex items-center justify-center gap-[8px]'>
+        <Col sm={2} className='flex items-center justify-start gap-[8px] sm:justify-center my-[10px] sm:my-[0px]'>
             {gridView === 6 ? <TbLayoutGridFilled onClick={() => { handleGridViewChange(6) }} className='cursor-pointer' /> : <HiOutlineViewGrid onClick={() => { handleGridViewChange(6) }} className='cursor-pointer' />}
             {gridView === 4 ? <BsGrid3X3GapFill onClick={() => { handleGridViewChange(4) }} className='cursor-pointer' /> : <BsGrid3X3Gap onClick={() => { handleGridViewChange(4) }} className='cursor-pointer' />}
             {gridView === 3 ? <TfiLayoutGrid4Alt onClick={() => { handleGridViewChange(3) }} className='cursor-pointer' /> : <TfiLayoutGrid4 onClick={() => { handleGridViewChange(3) }} className='cursor-pointer' />}
